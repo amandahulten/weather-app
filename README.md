@@ -8,24 +8,24 @@ En enkel guide för att köra projektet lokalt.
 
 ---
 
-# Steg 1: Klona repot
+## Steg 1: Klona repot
 git clone https://github.com/amandahulten/weather-app.git
 cd weather-app
 
-# Steg 2: Installera beroenden (välj ett av alternativen)
+## Steg 2: Installera beroenden (välj ett av alternativen)
 npm install
-# eller
+### eller
 pnpm install
-# eller
+### eller
 yarn install
 
-# Steg 3: Starta utvecklingsservern (välj ett av alternativen)
+## Steg 3: Starta utvecklingsservern (välj ett av alternativen)
 npm run dev
-# eller
+### eller
 pnpm dev
-# eller
+### eller
 yarn dev
 
-# Steg 4: Öppna i webbläsaren
+## Steg 4: Öppna i webbläsaren
 Gå till http://localhost:3000
 
