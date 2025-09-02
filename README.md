@@ -10,7 +10,7 @@ En enkel guide för att köra projektet lokalt.
 
 ## Steg 1: Klona repot
 git clone https://github.com/amandahulten/weather-app.git
-```bash
+
 cd weather-app
 
 ## Steg 2: Installera beroenden (välj ett av alternativen)
