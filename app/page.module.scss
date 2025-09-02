@@ -1,0 +1,211 @@
+@use "./styles/colors";
+@use "./styles/variables";
+
+.weatherContainer {
+  margin: 30px auto;
+  padding: 30px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .headingDescription {
+    text-align: center;
+    margin: 10px 0 28px 0;
+  }
+
+  .searchContainer {
+    .search {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+
+      input {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid colors.$light-gray;
+        border-radius: variables.$border-radius;
+      }
+
+      button {
+        padding: 0 22px;
+        border: none;
+        background-color: colors.$medium-blue;
+        color: colors.$white;
+        border-radius: variables.$border-radius;
+        cursor: pointer;
+        &:hover {
+          background: colors.$dark-blue;
+        }
+      }
+    }
+
+    @media (min-width: variables.$breakpointSmall) {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (min-width: variables.$breakpointMedium) {
+      width: 30%;
+      margin-left: auto;
+      margin-right: auto;
+
+      .search input {
+        padding: 12px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .loading {
+    margin-top: 12px;
+  }
+
+  .error {
+    margin-top: 12px;
+    color: colors.$red;
+  }
+
+  .results {
+    margin-top: 32px;
+
+    .currentWeatherContainer {
+      .placeContainer {
+        margin: 0 6px 12px 6px;
+        display: flex;
+        justify-content: space-between;
+
+        .unitToggle {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+          button {
+            padding: 6px 8px;
+            background-color: colors.$medium-blue;
+            color: colors.$white;
+            border: none;
+            border-radius: variables.$border-radius-small;
+            cursor: pointer;
+            &:hover {
+              background: colors.$dark-blue;
+            }
+          }
+        }
+      }
+
+      .currentWeather {
+        display: grid;
+        margin-bottom: 32px;
+        padding: 22px 18px;
+        border-radius: variables.$border-radius;
+        background: colors.$white;
+        border: 1px solid colors.$medium-blue;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+        justify-items: center;
+        gap: 10px;
+
+        .icon {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .temperature {
+          grid-column: 2;
+          grid-row: 1 / span 2;
+          align-self: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+
+          .value {
+            font-weight: bold;
+          }
+        }
+
+        .extra {
+          grid-column: 1;
+          grid-row: 2;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      @media (min-width: variables.$breakpointSmall) {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+
+        .currentWeather {
+          grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+          grid-template-rows: auto;
+          justify-content: space-around;
+
+          .icon,
+          .temperature,
+          .extra {
+            grid-column: auto;
+            grid-row: auto;
+            align-self: center;
+            justify-self: center;
+          }
+        }
+      }
+
+      @media (min-width: variables.$breakpointMedium) {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    .daily {
+      h3 {
+        margin-bottom: 14px;
+      }
+
+      .days {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+
+        .day {
+          background-color: colors.$white;
+          border: 1px solid colors.$medium-blue;
+          border-radius: variables.$border-radius;
+          padding: 12px;
+          text-align: center;
+
+          .icon {
+            margin: 10px 0;
+          }
+
+          .temps {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+          }
+
+          .precip {
+            margin-top: 4px;
+          }
+        }
+      }
+      @media (min-width: variables.$breakpointMedium) {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      @media (min-width: variables.$breakpointMedium) {
+        .days .day {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@use "./colors";
+@use "./variables";
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url("./fonts/Roboto-Light.eot") format("eot");
+  src: url("./fonts/Roboto-Light.woff") format("woff"),
+    url("./fonts/Roboto-Light.woff2") format("wof2");
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: Roboto-Light, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: colors.$light-blue;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 14px;
+}
+
+@media (min-width: variables.$breakpointSmall) {
+  h3 {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: variables.$breakpointMedium) {
+  p {
+    font-size: 16px;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
