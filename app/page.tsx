@@ -64,8 +64,12 @@ export default function WeatherPage() {
       const json = await res.json();
       if (!res.ok) throw new Error(json?.error || "Kunde inte hämta väder");
       setData(json as WeatherResult);
-    } catch (e: any) {
-      setError(e?.message || "Något gick fel");
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+      } else {
+        setError("Något gick fel");
+      }
     } finally {
       setLoading(false);
     }
